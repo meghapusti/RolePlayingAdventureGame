@@ -1,0 +1,92 @@
+import tkinter as tk
+import subprocess
+
+window=tk.Tk()  #instantiate an instance of a window
+window.geometry("1920x1080")  #Window size
+window.title("THE BREAD!!!")
+
+
+field=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Fields 2.png")
+chickpea_kitchen=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Castle Kitchen.png")
+Tim_home=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Cottage Table 1.png")
+
+canvas1 = tk.Canvas(window)   
+canvas1.pack(fill = "both", expand = True)
+canvas1.create_image( 0, 0, image = field, anchor = "nw")
+
+Frame1=tk.Frame(canvas1,borderwidth=0)
+Frame1.pack(pady=150)
+
+label1=tk.Label(canvas1,text="Tim spots Chickpea's bread in the distance!!",font=("Fixedsys",15),width=80,anchor="center")
+label1.pack(pady=15)
+label2=tk.Label(canvas1,text="but there's a sign here that says:",font=("Fixedsys",15),width=80,anchor="center")
+label2.pack(pady=15)
+labelsign=tk.Label(canvas1,text="WARNING: CHERRY BOMB FIELD! ENTER AT YOUR OWN RISK!!!",font=("Fixedsys",20),width=55,anchor="center",fg="white",bg="red")
+labelsign.pack(pady=15)
+def play():
+    subprocess.call(["python", "All Codes & Assets\Pei Pei\Pei Pei - Chick.py"])
+
+def start():
+    def returnhome():
+        def returnhome2():
+
+            def Main():
+                window.destroy()
+                subprocess.call(["python", "All Codes & Assets\Yx\MainMenu-unlocked"])
+
+
+
+
+
+            canvas1.destroy()
+            canvas2 = tk.Canvas(window)   
+            canvas2.pack(fill = "both", expand = True)
+            canvas2.create_image( 0, 0, image = Tim_home, anchor = "nw")
+            Frame2=tk.Frame(canvas2,borderwidth=0)
+            Frame2.pack(pady=150)
+
+            label4=tk.Label(canvas2,text="Thank You for Playing",font=("Fixedsys",15),width=80,anchor="center")
+            label4.pack(pady=5)
+            label5=tk.Label(canvas2,text="MiniGame on MainMenu is now unlocked",font=("Fixedsys",15),width=80,anchor="center")
+            label5.pack(pady=5)
+            label6=tk.Label(canvas2,text="See you on Tim's next adventure",font=("Fixedsys",15),width=80,anchor="center")
+            label6.pack(pady=5)
+            btn4=tk.Button(canvas2,text="See you Tim",font=("Fixedsys",15),width=80,anchor="center",command=Main)
+            btn4.pack(pady=25)
+
+        btn2.destroy()
+        btn3.destroy()
+        canvas1.create_image( 0, 0, image = chickpea_kitchen, anchor = "nw")
+        label3=tk.Label(canvas1,text="Tim gives bread to chickpea and saves her bakery!",font=("Fixedsys",15),width=80,anchor="center")
+        label3.pack(pady=15)
+        btn4=tk.Button(canvas1,text="Let's head home Tim",font=("Fixedsys",15),width=80,anchor="center",command=returnhome2)
+        btn4.pack(pady=25)
+
+
+
+
+
+
+    play()
+    canvas1.create_image( 0, 0, image = field, anchor = "nw")
+    label1.destroy()
+    label2.destroy()
+    labelsign.destroy()
+    btn1.destroy()
+    btn2=tk.Button(canvas1,text="That's enough bread, lets head off!",font=("Fixedsys",15),width=80,anchor="center",command=returnhome)
+    btn2.pack(pady=25)
+    btn3=tk.Button(canvas1,text="Chickpea might need somemore bread...",font=("Fixedsys",15),width=80,anchor="center",command=play)
+    btn3.pack(pady=25)
+    
+
+
+
+btn1=tk.Button(canvas1,text="Help Tim avoid the bombs and recover Chickpea's bread!!",font=("Fixedsys",15),width=80,anchor="center",command=start)
+btn1.pack(pady=50)
+
+
+
+
+
+
+window.mainloop()

@@ -1,0 +1,72 @@
+import tkinter as tk
+import subprocess
+
+screen=tk.Tk()  #instantiate an instance of a window
+screen.geometry("1920x1080")  #Window size
+screen.title("Brick wall?")
+screen.config(background="black")
+
+brickwalls=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Castle Ruins 2.png")    
+idea=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\_tim_acorn_idea.png")
+
+canvas1 = tk.Canvas(screen)   
+canvas1.pack(fill = "both", expand = True)
+canvas1.create_image( 0, 0, image = brickwalls, anchor = "nw")
+
+Frame1=tk.Frame(canvas1,borderwidth=0)
+Frame1.pack(pady=100)
+
+label1=tk.Label(canvas1,text="looks like this is the path to Merry Meadows",font=("Fixedsys",15),width=80,anchor="center")
+label1.pack(pady=5)
+label2=tk.Label(canvas1,text="but there is a brick wall in Tim's way ...",font=("Fixedsys",15),width=80,anchor="center")
+label2.pack(pady=5)
+
+
+
+def btnclick():
+
+
+    def brickgame():
+        def nextgame():
+            screen.destroy()
+            subprocess.call(["python", "All Codes & Assets\Yx\minigame3"])
+            
+
+
+        def play():
+            subprocess.call(["python", "All Codes & Assets\megha-brick.py"])
+        play()
+        label1.destroy()
+        label2.destroy()
+        label3.destroy()
+        label4.destroy()
+        label5.destroy()
+        button1.destroy()
+        button2.destroy()
+        Frame1.destroy()
+        Frame2=tk.Frame(canvas1,borderwidth=0)
+        Frame2.pack(pady=150)
+        button3=tk.Button(canvas1,text="Hmm... Maybe more acorns throwing?",font=("Fixedsys",15),width=80,anchor="center",command=play)
+        button3.pack(pady=50)
+        button4=tk.Button(canvas1,text="Looks like the hole is big enough for Tim, let's go!",font=("Fixedsys",15),width=80,anchor="center",command=nextgame)
+        button4.pack(pady=50)
+        
+
+
+
+
+    #btnclick
+    label3=tk.Label(canvas1,text="Tim spots a pile of acorns",font=("Fixedsys",15),width=80,anchor="center")
+    label3.pack(pady=5)
+    label4=tk.Label(canvas1,image=idea,anchor="center")
+    label4.pack(pady=5)
+    label5=tk.Label(canvas1,text="Tim has an idea",font=("Fixedsys",15),width=80,anchor="center")
+    label5.pack(pady=15)
+    button2=tk.Button(canvas1,text="Lets throw these acorns at the wall!",font=("Fixedsys",15),width=80,anchor="center",command=brickgame)
+    button2.pack(pady=25)
+
+button1=tk.Button(canvas1,text="Let's look around for a path",font=("Fixedsys",15),width=80,anchor="center",command=btnclick)
+button1.pack(pady=25)
+
+
+screen.mainloop()

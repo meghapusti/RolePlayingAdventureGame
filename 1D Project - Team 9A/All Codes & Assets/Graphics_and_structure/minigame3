@@ -1,0 +1,129 @@
+import tkinter as tk
+import subprocess
+
+window=tk.Tk()  #instantiate an instance of a window
+window.geometry("1920x1080")  #Window size
+window.title("Lost my way :<")
+window.config(background="black")
+
+house=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Cottage 1.png")
+interior=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Cottage Table 3.png")
+
+canvas1 = tk.Canvas(window)   
+canvas1.pack(fill = "both", expand = True)
+canvas1.create_image( 0, 0, image = house, anchor = "nw")
+
+Frame1=tk.Frame(canvas1,borderwidth=0)
+Frame1.pack(pady=100)
+
+
+
+label1=tk.Label(canvas1,text="Tim is lost...",font=("Fixedsys",15),width=80,anchor="center")
+label1.pack(pady=5)
+label2=tk.Label(canvas1,text="looks like there is a cottage ahead",font=("Fixedsys",15),width=80,anchor="center")
+label2.pack(pady=5)
+label3=tk.Label(canvas1,text="I wonder if there is anyone Tim can seek direction from...",font=("Fixedsys",15),width=80,anchor="center")
+label3.pack(pady=5)
+
+def knockdoor():
+    def knockdoor2():
+        def next():
+            window.destroy()
+            subprocess.call(["python","All Codes & Assets\Yx\minigame4"])
+        def play2():
+            subprocess.call(["python", "All Codes & Assets\Hetavi - Tic tac toe.py"])
+
+        def play1():
+            play2()
+            label9.destroy()
+            label10.destroy()
+            label11.destroy()
+            label12.destroy()
+            label13.destroy()
+            label14.destroy()
+            label15.destroy()
+            label16.destroy()
+            label17.destroy()
+            button7.destroy()
+            button8.destroy()
+            button9=tk.Button(canvas2,text="That was fun, let's play again1",font=("Fixedsys",15),width=80,anchor="center",command=play2)
+            button9.pack(pady=25) 
+            button10=tk.Button(canvas2,text="Can i have the directions now?",font=("Fixedsys",15),width=80,anchor="center",command=next)
+            button10.pack(pady=25) 
+
+
+        label16=tk.Label(canvas2,text="Rudolf pulls out a piece of paper",font=("Fixedsys",15),width=80,anchor="center")
+        label16.pack(pady=5)
+        label17=tk.Label(canvas2,text="You have to play a game with me",font=("Fixedsys",15),width=80,anchor="center",fg="blue")
+        label17.pack(pady=5)
+        button8=tk.Button(canvas2,text="Sure, lets play!",font=("Fixedsys",15),width=80,anchor="center",command=play1)
+        button8.pack(pady=25) 
+
+
+
+
+    canvas1.destroy()
+    canvas2 = tk.Canvas(window)   
+    canvas2.pack(fill = "both", expand = True)
+    canvas2.create_image( 0, 0, image = interior, anchor = "nw")
+    Frame2=tk.Frame(canvas2,borderwidth=0)
+    Frame2.pack(pady=100)
+    label9=tk.Label(canvas2,text="A dog (Rudolf) came to answer the door and invited Tim in",font=("Fixedsys",15),width=80,anchor="center")
+    label9.pack(pady=5)
+    label10=tk.Label(canvas2,text="Tim politely expresses his intentions",font=("Fixedsys",15),width=80,anchor="center")
+    label10.pack(pady=5)
+    label11=tk.Label(canvas2,text="Tim expresses his intentions of visiting Merry Meadows",font=("Fixedsys",15),width=80,anchor="center")
+    label11.pack(pady=5)
+    label12=tk.Label(canvas2,text="Yes, I do know the way",font=("Fixedsys",15),width=80,anchor="center",fg="blue")
+    label12.pack(pady=5)
+    label13=tk.Label(canvas2,text="Tim's eyes lit up in delight",font=("Fixedsys",15),width=80,anchor="center")
+    label13.pack(pady=5)
+    label14=tk.Label(canvas2,text="BUT",font=("Fixedsys",15),width=80,anchor="center",fg="blue")
+    label14.pack(pady=5) 
+    label15=tk.Label(canvas2,text="*Tim holds his breath*",font=("Fixedsys",15),width=80,anchor="center")
+    label15.pack(pady=5) 
+    button7=tk.Button(canvas2,text="Click to continue",font=("Fixedsys",15),width=80,anchor="center",command=knockdoor2)
+    button7.pack(pady=25) 
+
+
+
+
+
+
+
+def findingownway():
+    def timstruggle():
+        label7=tk.Label(canvas1,text="Tim struggles to get up",font=("Fixedsys",15),width=80,anchor="center")
+        label7.pack(pady=5)
+        label8=tk.Label(canvas1,text="Tim sighs and walks to cottage",font=("Fixedsys",15),width=80,anchor="center")
+        label8.pack(pady=5)
+        button6=tk.Button(canvas1,text="Knock on the door",font=("Fixedsys",15),width=80,anchor="center",command=knockdoor)
+        button6.pack(pady=50) 
+
+    label1.destroy()
+    label2.destroy()
+    label3.destroy()
+    button3.destroy()
+    button4.destroy()
+
+    label4=tk.Label(canvas1,text="after passing by the cottage three times...",font=("Fixedsys",15),width=80,anchor="center")
+    label4.pack(pady=5)
+    label5=tk.Label(canvas1,text="Tim sighs...",font=("Fixedsys",15),width=80,anchor="center")
+    label5.pack(pady=5)
+    label6=tk.Label(canvas1,text="Tim sits on the ground and refuses to move",font=("Fixedsys",15),width=80,anchor="center")
+    label6.pack(pady=5)
+    button5=tk.Button(canvas1,text="lets go ask for direction...",font=("Fixedsys",15),width=80,anchor="center",command=timstruggle)
+    button5.pack(pady=50)   
+
+
+button3=tk.Button(canvas1,text="Knock on cottage door",font=("Fixedsys",15),width=80,anchor="center",command=knockdoor)
+button3.pack(pady=50)
+button4=tk.Button(canvas1,text="Nah~ Tim can find his own way!",font=("Fixedsys",15),width=80,anchor="center",command=findingownway)
+button4.pack(pady=50)
+
+
+
+
+
+
+window.mainloop()

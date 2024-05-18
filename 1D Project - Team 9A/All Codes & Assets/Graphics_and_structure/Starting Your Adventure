@@ -1,0 +1,117 @@
+
+import tkinter as tk
+import subprocess
+
+
+screen1=tk.Tk() 
+screen1.geometry("1920x1080")  
+screen1.title("Starting The Adventure")
+screen1.config(background="black")
+
+bkg2=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Cottage Table 1.png")
+canvas2 = tk.Canvas(screen1)   
+canvas2.pack(fill = "both", expand = True)
+canvas2.create_image( 0, 0, image = bkg2, anchor = "nw")
+
+def mini1():
+    screen1.destroy()
+    subprocess.call(["python", "All Codes & Assets\Yx\minigame1"])
+
+tim_sitting=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\_timsit.png")
+tim_packed=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\_tim_sword.png")
+
+
+
+
+
+NamingFrame=tk.Frame(canvas2)
+NamingFrame.columnconfigure(0,weight=1)
+NamingFrame.columnconfigure(1,weight=1)
+
+Naming=tk.Entry(NamingFrame,width=50,font=("Fixedsys",15),)
+Naming.grid(row=0,column=1) 
+
+
+
+
+
+
+def scream():
+    canvas2.destroy()
+    canvas3 = tk.Canvas(screen1,background="black")   
+    canvas3.pack(fill = "both", expand = True)
+    lb7=tk.Label(canvas3,text="AHHHHHHHHHHHHHH!!!!!!!!",font=("Fixedsys",80),fg="white",bg="black")
+    lb7.pack(pady=150)
+    lb8=tk.Label(canvas3,text="That's a horrifying scream!",font=("Fixedsys",30),fg="white",bg="black")
+    lb8.pack(pady=20)
+
+
+    def actingblur():
+        canvas3.destroy()
+        canvas4 = tk.Canvas(screen1,background="black")   
+        canvas4.pack(fill = "both", expand = True)
+        lb9=tk.Label(canvas4,text="Oh come-on, you must have heard that, lets go now",font=("Fixedsys",30),fg="white",bg="black")
+        lb9.pack(pady=150)
+        Screambtn1=tk.Button(canvas4,text="Welp, time to go",font=("Fixedsys",15),width=50,command=mini1)
+        Screambtn1.pack(pady=2)
+
+
+    Screambtn1=tk.Button(canvas3,text="Tim, lets go have a look!",font=("Fixedsys",15),width=50,command=mini1)
+    Screambtn1.pack(pady=2)
+    Screambtn2=tk.Button(canvas3,text="Huh, Scream? What scream?",font=("Fixedsys",15),width=50,command=actingblur)
+    Screambtn2.pack(pady=2)
+
+
+
+    
+   
+
+    
+
+
+
+
+
+
+def packed():
+    lb5=tk.Label(canvas2,image=tim_packed)
+    lb5.pack(pady=2)
+    lb6=tk.Label(canvas2,text="Looks like Tim is ready to go with that beautiful sword of his",font=("Fixedsys",15))
+    lb6.pack(pady=2)
+    Ready2=tk.Button(canvas2,text="click to continue",font=("Fixedsys",15),width=50,command=scream)
+    Ready2.pack(pady=2)
+
+
+
+
+    
+def Done():
+    hi="Hello "+ Naming.get()
+    lb1=tk.Label(canvas2,text=hi,font=("Fixedsys",15))
+    lb1.pack(padx=0,pady=0)
+    lb2=tk.Label(canvas2,text="This is Tim the cat, and he is ready to go for an adventure",font=("Fixedsys",15))
+    lb2.pack(pady=2)
+    lb3=tk.Label(canvas2,image=tim_sitting)
+    lb3.pack(pady=2)
+    text4=Naming.get() +", Control Tim using Mouse Buttons and Arrow Keys"
+    lb4=tk.Label(canvas2,text=text4,font=("Fixedsys",15))
+    lb4.pack(pady=2)
+    lb5=tk.Label(canvas2,text="let us wait for Tim to pack up for his adventure",font=("Fixedsys",15))
+    lb5.pack(pady=2)
+    Ready=tk.Button(canvas2,text="click to continue",font=("Fixedsys",15),width=50,command=packed)
+    Ready.pack(pady=2)
+
+    
+    
+
+TextName=tk.Button(NamingFrame,text="Enter your Adventurer Name:(click here to confirm)",font=("Fixedsys",15),width=50,command=Done)
+TextName.grid(row=0,column=0)   
+
+CharacName=Naming.get()
+NamingFrame.pack(padx=0,pady=50)
+    
+    
+    
+    
+screen1.mainloop()
+        

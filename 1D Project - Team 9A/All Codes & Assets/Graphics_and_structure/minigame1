@@ -1,0 +1,167 @@
+import tkinter as tk
+import subprocess
+
+
+
+
+Minigame1=tk.Tk()
+Minigame1.geometry("1920x1080")
+M1_1= tk.Canvas(Minigame1)   
+M1_1.pack(fill = "both", expand = True)
+bkg=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Village Tavern 3.png")   
+bkg2=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Castle Kitchen.png")
+bkg3=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Castle Pathway.png")
+chick1=tk.PhotoImage(file="All Codes & Assets\Pei Pei\mainchick.gif")
+    
+
+
+
+
+
+M1_1.create_image( 0, 0, image = bkg, anchor = "nw")
+
+
+def go2():
+    subprocess.call(["python", "All Codes & Assets\Yx\minigame2"])
+    Minigame1.destroy()
+
+
+def enter():
+    M1_1.destroy()
+    M1_2=tk.Canvas(Minigame1)   
+    M1_2.pack(fill = "both", expand = True)
+    
+
+    def talk():
+        def talk2():
+            def talk3():
+                def talk4():
+                    def talk5():
+                        def talk6():
+                            M1_2.destroy()
+                            M1_3=tk.Canvas(Minigame1)
+                            M1_3.pack(fill = "both", expand = True)
+                            M1_3.create_image( 0, 0, image = bkg3, anchor = "nw")
+                            frame3=tk.Frame(M1_3,borderwidth=0)
+                            frame3.pack(pady=100)
+
+                            lb31=tk.Label(M1_3,text="and so, Tim sets on an adventure to recover Chickpea's bread",font=("Fixedsys",15),width=80,anchor="center")
+                            lb31.pack(pady=25)
+                            lb33=tk.Label(M1_3,text="There are reports of sighting of bread crumbs in Merry Meadows",font=("Fixedsys",15),width=80,anchor="center")
+                            lb33.pack(pady=25)
+                            btn32=tk.Button(M1_3,text="Lets head over!",font=("Fixedsys",15),width=50,anchor="center",command=go2)
+                            btn32.pack(pady=50)
+                         
+                        lb11.destroy()
+                        lb12.destroy()
+                        lb13.destroy()
+                        btn7.destroy()
+
+                        lb14=tk.Label(M1_2,text="You are going for an adventure, aren't you",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+                        lb14.pack(pady=5)
+                        lb15=tk.Label(M1_2,text="Chickpea poke at Tim's sword",font=("Fixedsys",15),width=80,anchor="center")
+                        lb15.pack(pady=5)
+                        lb16=tk.Label(M1_2,text="I could use some help here",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+                        lb16.pack(pady=5)
+                        btn8=tk.Button(M1_2,text="Ahh.. Alright",font=("Fixedsys",15),width=50,anchor="center",command=talk6)
+                        btn8.pack(pady=50)
+                        
+                            
+                        
+                    #command - talk4     
+                    lb9.destroy()
+                    lb10.destroy()
+                    btn5.destroy()
+                    btn6.destroy()
+                    lb11=tk.Label(M1_2,text="._. (awkard stare) ",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+                    lb11.pack(pady=5)
+                    lb12=tk.Label(M1_2,text="...(Tim stays quiet)",font=("Fixedsys",15),width=80,anchor="center",fg="black")
+                    lb12.pack(pady=5)
+                    lb13=tk.Label(M1_2,text="...",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+                    lb13.pack(pady=5)
+
+                    btn7=tk.Button(M1_2,text="...",font=("Fixedsys",15),width=50,anchor="center",command=talk5)
+                    btn7.pack(pady=50)
+
+                
+                def talk6():
+                    M1_2.destroy()
+                    M1_3=tk.Canvas(Minigame1)
+                    M1_3.pack(fill = "both", expand = True)
+                    M1_3.create_image( 0, 0, image = bkg3, anchor = "nw")
+                    frame3=tk.Frame(M1_3,borderwidth=0)
+                    frame3.pack(pady=100)
+                    lb31=tk.Label(M1_3,text="and so, Tim sets on an adventure to recover Chickpea's bread",font=("Fixedsys",15),width=100,anchor="center")
+                    lb31.pack(pady=25)
+                    lb33=tk.Label(M1_3,text="There are reports of sighting of bread crumbs in Merry Meadows",font=("Fixedsys",15),width=100,anchor="center")
+                    lb33.pack(pady=25)
+                    btn32=tk.Button(M1_3,text="Lets head over!",font=("Fixedsys",15),width=50,anchor="center",command=go2)
+                    btn32.pack(pady=50)
+
+                #command - talk3   
+                lb5.destroy()
+                lb6.destroy()
+                lb7.destroy()
+                lb8.destroy()
+                btn4.destroy()
+
+                lb9=tk.Label(M1_2,text="By the way, why are you dressed up like this?",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+                lb9.pack(pady=5)
+                lb10=tk.Label(M1_2,text="Tim looks at himself",font=("Fixedsys",15),width=80,anchor="center")
+                lb10.pack(pady=5)
+                btn5=tk.Button(M1_2,text="Im an adventurer! Let me help you!",font=("Fixedsys",15),width=50,anchor="center",command=talk6)
+                btn5.pack(pady=50)
+                btn6=tk.Button(M1_2,text="uhhh.. I am Cosplaying?",font=("Fixedsys",15),width=50,anchor="center",command=talk4)
+                btn6.pack(pady=0)
+
+            #command - talk2
+            lb4.destroy()
+            btn3.destroy()
+            
+            pic1=tk.Label(M1_2,image=chick1)
+            pic1.pack(pady=25,anchor="center")
+
+            lb5=tk.Label(M1_2,text="Chickpea points at NOTE left on her kitchen counter.",font=("Fixedsys",15),width=80,anchor="center")
+            lb5.pack(pady=5)
+            lb6=tk.Label(M1_2,text="I STOLE YOUR BREAD!! YOU WILL NEVER FIND THEM AGAIN!! HAHAHHA!",font=("Fixedsys",20),width=80,anchor="center",fg="white",bg="red")
+            lb6.pack(pady=5)
+            lb7=tk.Label(M1_2,text="Chickpea: What am i going to sell in my bakery today!!",font=("Fixedsys",15),width=80,anchor="center",fg="brown")
+            lb7.pack(pady=5)
+            lb8=tk.Label(M1_2,text="Chickpea looks at Tim",font=("Fixedsys",15),width=80,anchor="center")
+            lb8.pack(pady=5)
+            btn4=tk.Button(M1_2,text="Click to Continue",font=("Fixedsys",15),width=50,anchor="center",command=talk3)
+            btn4.pack(pady=25)
+
+
+        #command - talk
+        lb2.destroy()
+        lb3.destroy()
+        btn2.destroy()
+        lb4=tk.Label(M1_2,text="The bread I prepared is all gone!",font=("Fixedsys",15),width=50,anchor="center",fg="brown")
+        lb4.pack(pady=50)
+        btn3=tk.Button(M1_2,text="Oh no, what happened?",font=("Fixedsys",15),width=50,anchor="center",command=talk2)
+        btn3.pack(pady=50)
+
+    M1_1.destroy()
+    M1_2.create_image( 0, 0, image = bkg2, anchor = "nw")
+    frame2=tk.Frame(M1_2,borderwidth=0)
+    frame2.pack(pady=100)
+    lb2=tk.Label(M1_2,text="Chickpea is screaming",font=("Fixedsys",15),width=50,anchor="center")
+    lb2.pack(pady=50)
+    lb3=tk.Label(M1_2,image=chick1)
+    lb3.pack(pady=25)
+    btn2=tk.Button(M1_2,text="Talk to Chickpea",font=("Fixedsys",15),width=50,anchor="center",command=talk)
+    btn2.pack(pady=50)
+
+    
+
+
+frame1=tk.Frame(M1_1,borderwidth=0)
+frame1.pack(pady=100)
+lb1=tk.Label(M1_1,text="That's Chickpea's house, i wonder what happened",font=("Fixedsys",15),width=50,anchor="center")
+lb1.pack(pady=50)
+btn1=tk.Button(M1_1,text="Go in",font=("Fixedsys",15),width=50,anchor="center",command=enter)
+btn1.pack(pady=50)
+
+
+Minigame1.mainloop()

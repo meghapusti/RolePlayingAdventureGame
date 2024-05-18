@@ -1,0 +1,108 @@
+import tkinter as tk
+import subprocess
+
+window=tk.Tk()  #instantiate an instance of a window
+window.geometry("1920x1080")  #Window size
+window.title("What's the Passcode?")
+
+path=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Ruins 2.png")
+door=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Doorway.png")
+unlocked=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Fields 3.png")
+
+canvas1 = tk.Canvas(window)   
+canvas1.pack(fill = "both", expand = True)
+canvas1.create_image( 0, 0, image = path, anchor = "nw")
+
+Frame1=tk.Frame(canvas1,borderwidth=0)
+Frame1.pack(pady=100)
+
+
+label1=tk.Label(canvas1,text="Following Rudolf's directions, Tim reaches a door",font=("Fixedsys",15),width=80,anchor="center")
+label1.pack(pady=5)
+label2=tk.Label(canvas1,text="Tim tries to open the door",font=("Fixedsys",15),width=80,anchor="center")
+label2.pack(pady=5)
+label3=tk.Label(canvas1,text="The door seem to be locked...",font=("Fixedsys",15),width=80,anchor="center")
+label3.pack(pady=5)
+def text2():
+    def door_text():
+        def next():
+            window.destroy()
+            subprocess.call(["python","All Codes & Assets\Yx\minigame1_2"])
+
+        def play1():
+            subprocess.call(["python", "All Codes & Assets\Hiromi Color Code Game Code.py"])
+
+            canvas2.destroy()
+            canvas3 = tk.Canvas(window)
+            canvas3.pack(fill = "both", expand = True)
+            canvas3.create_image( 0, 0, image = unlocked, anchor = "nw")
+            Frame4=tk.Frame(canvas3,borderwidth=0)
+            Frame4.pack(pady=150)
+
+
+            label10=tk.Label(canvas3,text="The door come unlocked",font=("Fixedsys",15),width=80,anchor="center")
+            label10.pack(pady=5) 
+            label11=tk.Label(canvas3,text="Tim is now at Merry Meadows!",font=("Fixedsys",15),width=80,anchor="center")
+            label11.pack(pady=5) 
+
+            label11=tk.Label(canvas3,text="Tim sees breadcrumbs on the floor, Chickpea's bread should be just ahead!",font=("Fixedsys",15),width=80,anchor="center")
+            label11.pack(pady=5) 
+            btn7=tk.Button(canvas3,text="Follow the breadcrumbs!",font=("Fixedsys",15),width=80,anchor="center",command=next)
+            btn7.pack(pady=50) 
+
+
+
+
+
+        def beanasshole():
+            label8=tk.Label(canvas2,text="Tim was unable to solve the passcode",font=("Fixedsys",15),width=80,anchor="center")
+            label8.pack(pady=5)
+            label9=tk.Label(canvas2,text="Tim starts crying",font=("Fixedsys",15),width=80,anchor="center")
+            label9.pack(pady=5)
+            btn5=tk.Button(canvas2,text="!!! HELP TIM",font=("Fixedsys",15),width=80,anchor="center",command=play1)
+            btn5.pack(pady=25)
+
+        canvas1.destroy()
+        canvas2 = tk.Canvas(window)
+        canvas2.pack(fill = "both", expand = True)
+        canvas2.create_image( 0, 0, image = door, anchor = "nw")
+        Frame3=tk.Frame(canvas2,borderwidth=0)
+        Frame3.pack(pady=100)
+
+        label6=tk.Label(canvas2,text="It says here to find the passcode to unlock",font=("Fixedsys",15),width=80,anchor="center")
+        label6.pack(pady=5)
+        label7=tk.Label(canvas2,text="Tim starts analysing and fidgeting with the lock",font=("Fixedsys",15),width=80,anchor="center")
+        label7.pack(pady=5)
+
+        btn3=tk.Button(canvas2,text="Help Tim",font=("Fixedsys",15),width=80,anchor="center",command=play1)
+        btn3.pack(pady=25)
+        btn4=tk.Button(canvas2,text="Watch Tim struggle",font=("Fixedsys",15),width=80,anchor="center",command=beanasshole)
+        btn4.pack(pady=25)
+    
+
+
+
+
+    Frame2=tk.Frame(canvas1,borderwidth=0)
+    Frame2.pack(pady=50)
+    label4=tk.Label(canvas1,text="Tim starts searching for acorns",font=("Fixedsys",15),width=80,anchor="center")
+    label4.pack(pady=5)
+    label5=tk.Label(canvas1,text="...",font=("Fixedsys",15),width=80,anchor="center")
+    label5.pack(pady=5)
+    btn2=tk.Button(canvas1,text="Points out to Tim that there are words on the door",font=("Fixedsys",15),width=80,anchor="center",command=door_text)
+    btn2.pack(pady=25)
+
+
+
+
+
+btn1=tk.Button(canvas1,text="Click to Continue",font=("Fixedsys",15),width=80,anchor="center",command=text2)
+btn1.pack(pady=25)
+
+
+
+
+
+
+
+window.mainloop()

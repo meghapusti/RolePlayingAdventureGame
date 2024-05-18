@@ -1,0 +1,141 @@
+import tkinter as tk
+import subprocess
+
+screen=tk.Tk()  #instantiate an instance of a window
+screen.geometry("1920x1080")  #Window size
+screen.title("Choose Your Own Adventure!")
+
+bkg=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Path 4.png")
+bkg2=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Fields 3.png")    #background image
+bkg3=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Cottage Table 1.png")
+
+canvas1 = tk.Canvas(screen)   
+canvas1.pack(fill = "both", expand = True)
+canvas1.create_image( 0, 0, image = bkg, anchor = "nw")
+
+title_pic=tk.PhotoImage(file="All Codes & Assets\Yx\Graphics\Choose Your Own Adventure!.png")  #title
+title_label=tk.Label(canvas1,image=title_pic)
+title_label.place(x=500,y=50)
+
+
+def exit():
+    screen.destroy()
+def StartGame(): 
+    screen.destroy()
+    subprocess.call(["python", "All Codes & Assets\Yx\Starting Your Adventure"])
+    
+def cre():
+    credits=tk.Toplevel(screen)
+    credits.geometry("1920x1080")
+    credits.title("CREDITS")
+    credit_c = tk.Canvas(credits)   
+    credit_c.pack(fill = "both", expand = True)
+    credit_c.create_image( 0, 0, image = bkg2, anchor = "nw")
+
+
+
+    c_label1=tk.Label(credit_c,text="CREDITS",font=("Fixedsys",35),width=20,anchor="center")
+    c_label1.pack(pady=50)
+
+    c_label2=tk.Label(credit_c,text="Background graphics: Fantasy Forest Background from https://lornn.itch.io/",font=("Fixedsys",15),width=100,anchor="center")
+    c_label2.pack(pady=5)
+    c_label3=tk.Label(credit_c,text="Tim's graphics: CUTE LEGENDS: CAT HEROES from https://9e0.itch.io/",font=("Fixedsys",15),width=100,anchor="center")
+    c_label3.pack(pady=5)
+
+    c_label4=tk.Label(credit_c,text="Game was created by:",font=("Fixedsys",35),width=20,anchor="center")
+    c_label4.pack(pady=60)
+
+    c_label5=tk.Label(credit_c,text="Hetavi",font=("Fixedsys",25),width=20,anchor="center")
+    c_label5.pack(pady=5)
+    c_label6=tk.Label(credit_c,text="Hiromi",font=("Fixedsys",25),width=20,anchor="center")
+    c_label6.pack(pady=5)
+    c_label7=tk.Label(credit_c,text="Megha",font=("Fixedsys",25),width=20,anchor="center")
+    c_label7.pack(pady=5)
+    c_label8=tk.Label(credit_c,text="Pei Pei",font=("Fixedsys",25),width=20,anchor="center")
+    c_label8.pack(pady=5)
+    c_label9=tk.Label(credit_c,text="Ying Xuan",font=("Fixedsys",25),width=20,anchor="center")
+    c_label9.pack(pady=5)
+
+    def back():
+        credits.destroy()
+
+
+    c_btn=tk.Button(credit_c,text="Back To Menu",font=("Fixedsys",10),width=15,anchor="center",command=back)
+    c_btn.pack(pady=15)
+    credits.mainloop()
+
+def mini():
+    MG=tk.Toplevel(screen)
+    MG.geometry("1920x1080")
+    MG.title("MiniGames")
+    MG_C = tk.Canvas(MG)   
+    MG_C.pack(fill = "both", expand = True)
+    MG_C.create_image( 0, 0, image = bkg3, anchor = "nw")
+
+    m_label1=tk.Label(MG_C,text="MINIGAMES",font=("Fixedsys",35),width=35,anchor="center")
+    m_label1.pack(pady=75)
+    
+    m_frame=tk.Frame(MG_C)                  
+    m_frame.rowconfigure(0,weight=1)
+    m_frame.rowconfigure(1,weight=1)
+    m_frame.rowconfigure(2,weight=1)
+    m_frame.rowconfigure(3,weight=1)
+
+
+    def brickwall():
+        subprocess.call(["python", "All Codes & Assets\megha-brick.py"])
+    m_btn1=tk.Button(m_frame,text="Brick Wall",font=("Fixedsys",35),width=20,command=brickwall)
+    m_btn1.grid(row=0,column=0)
+
+    def TTT():     
+        subprocess.call(["python", "All Codes & Assets\Hetavi - Tic tac toe.py"])    
+    m_btn2=tk.Button(m_frame,text="Tic-Tac-Toe",font=("Fixedsys",35),width=20,command=TTT)
+    m_btn2.grid(row=1,column=0) 
+    
+    def CTC():
+        subprocess.call(["python", "All Codes & Assets\Hiromi Color Code Game Code.py"])
+    m_btn3=tk.Button(m_frame,text="Crack The Code",font=("Fixedsys",35),width=20,command=CTC)
+    m_btn3.grid(row=2,column=0) 
+    
+    def PC():
+        subprocess.call(["python", "All Codes & Assets\Pei Pei\Pei Pei - Chick.py"])
+        pass
+    m_btn4=tk.Button(m_frame,text="PacMan",font=("Fixedsys",35),width=20,command=PC)
+    m_btn4.grid(row=3,column=0)
+    
+    m_frame.pack(pady=10)
+    
+    def menu():
+        MG.destroy()
+    m_btn5=tk.Button(MG_C,text="Back To Menu",font=("Fixedsys",10),width=15,anchor="center",command=menu)
+    m_btn5.pack(pady=20)
+
+    
+
+    MG.mainloop()
+
+
+
+
+frame=tk.Frame(canvas1)    #buttons&positions
+frame.place(x=800,y=500,anchor="center")
+
+buttonframe=tk.Frame(canvas1)                  
+buttonframe.rowconfigure(0,weight=1)
+buttonframe.rowconfigure(1,weight=1)
+buttonframe.rowconfigure(2,weight=1)
+buttonframe.rowconfigure(3,weight=1)
+
+btn1=tk.Button(frame,text="Start Game",command=StartGame,font=("Fixedsys",35),width=20)
+btn1.grid(row=0,column=0)             #row,column   
+btn2=tk.Button(frame,text="Mini Games",font=("Fixedsys",35),width=20,command=mini,state="disabled")
+btn2.grid(row=1,column=0) 
+btn3=tk.Button(frame,text="Credits",font=("Fixedsys",35),width=20,command=cre)
+btn3.grid(row=2,column=0) 
+btn4=tk.Button(frame,text="Quit",command=exit,font=("Fixedsys",35),width=20)
+btn4.grid(row=3,column=0) 
+
+buttonframe.pack(padx=50,pady=50)
+
+screen.mainloop()
+#=========================================
